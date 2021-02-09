@@ -22,7 +22,7 @@ const Layout = () => {
         </Col>
       </Row>
       <Row className="py-3 d-none d-lg-flex" style={{ fontWeight: "bold" }}>
-        <Col lg="6">
+        <Col lg="5">
           Issue
         </Col>
         <Col lg="3">
@@ -31,7 +31,7 @@ const Layout = () => {
         <Col lg="2">
           Repository
         </Col>
-        <Col lg="1">
+        <Col lg="2">
         </Col>
       </Row>
       
@@ -49,7 +49,7 @@ const Layout = () => {
           };
           return <Issue {...props} />
         })
-        : <Row><Col>Loading issues...</Col></Row>
+        : <Row className="py-3"><Col>Loading issues...</Col></Row>
       }
     </Container>
   );

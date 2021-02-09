@@ -9,7 +9,7 @@ interface IIssueProps {
 
 const Issue = ({ issue, deleteIssue }:IIssueProps) => (
   <Row className="py-lg-3 align-items-center">
-    <Col className="py-2 py-lg-0" lg="6">
+    <Col className="py-2 py-lg-0" lg="5">
       <a href={issue.issueUrl}>{issue.issueTitle}</a>
     </Col>
     <Col className="py-2 py-lg-0" lg="3">
@@ -23,7 +23,7 @@ const Issue = ({ issue, deleteIssue }:IIssueProps) => (
     <Col className="py-2 py-lg-0" lg="2">
       <a href={issue.repositoryUrl}>{issue.repositoryName}</a>
     </Col>
-    <Col className="py-2 py-lg-0" lg="1">
+    <Col className="py-2 py-lg-0 text-right" lg="2">
       <Button onClick={deleteIssue}>Delete</Button>
     </Col>
   </Row>
