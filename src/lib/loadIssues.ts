@@ -35,17 +35,17 @@ export default async function loadIssues():Promise<IIssueData[]> {
     return (issueTitle > lastTitle) ? 1 : -1;
   }).filter(issue => !issue.pull_request);
 
+  console.log(issues);
+
   return issues.map(issue => {
-    let repositoryName = issue.repository_url.substr(issue.repository_url.lastIndexOf('/') + 1);
-    repositoryName = repositoryName.charAt(0).toUpperCase() + repositoryName.slice(1);
     return {
       issueTitle: issue.title,
       issueUrl: issue.html_url,
       username: issue.user!.login,
       userAvatar: issue.user!.avatar_url,
       userProfile: issue.user!.html_url,
-      repositoryName,
-      repositoryUrl: issue.repository_url,
+      repositoryName: issue.repository_url.substr(issue.repository_url.lastIndexOf('/') + 1),
+      repositoryUrl: issue.repository_url.replace(/(api\.|\/repos)/g, ''),
     };
   });
 }
